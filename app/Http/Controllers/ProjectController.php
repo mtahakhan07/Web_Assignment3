@@ -72,4 +72,11 @@ class ProjectController extends Controller
 
         return redirect('/projects')->with('success', 'Project deleted successfully');
     }
+    
+    public function showEvaluations($projectId)
+    {
+        $project = Project::withCount('evaluations')->findOrFail($projectId);
+        return view('projects.showEvaluations', ['project' => $project]);
+    }
+
 }

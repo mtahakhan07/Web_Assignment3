@@ -66,4 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/projects/{projectId}/evaluations', [ProjectController::class, 'showEvaluations'])->name('projects.showEvaluations');
+
+
 require __DIR__.'/auth.php';
